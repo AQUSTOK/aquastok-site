@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://aquastok.net.ua/sitemap.xml
+Host: aquastok.net.ua

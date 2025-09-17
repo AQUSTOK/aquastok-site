@@ -1,86 +1,100 @@
 // components/Compare.tsx
+'use client';
+
+import Link from "next/link";
+
+type Row = {
+  k: string;
+  metal: string;
+  pvc: string;
+};
+
+const ROWS: Row[] = [
+  { k: "Міцність/жорсткість", metal: "Висока (сталь 0.45–0.5 мм)", pvc: "Середня" },
+  { k: "Стійкість до УФ/температур", metal: "Висока (полімерне покриття)", pvc: "Схильність до деформацій та вигорання" },
+  { k: "Естетика сучасних фасадів", metal: "Преміум вигляд, квадратні труби", pvc: "Більш «пластиковий» вигляд" },
+  { k: "Пропускна здатність спуску", metal: "до 230 м² на 1 спуск", pvc: "≈130 м²" },
+  { k: "Шумність", metal: "Низька", pvc: "Середня" },
+  { k: "Вартість", metal: "Вигідна", pvc: "Висока" },
+];
+
 export default function Compare() {
-  const rows: [string, React.ReactNode, React.ReactNode][] = [
-    [
-      "Міцність/жорсткість",
-      <>Висока <span className="text-slate-500">(сталь 0.45–0.5 мм)</span></>,
-      "Середня",
-    ],
-    [
-      "Стійкість до УФ/температур",
-      <>Висока (полімерне покриття)</>,
-      "Схильність до деформацій та вигорання",
-    ],
-    [
-      "Естетика сучасних фасадів",
-      <>Преміум вигляд, квадратні труби</>,
-      "Більш «пластиковий» вигляд",
-    ],
-    [
-      "Пропускна здатність спуску",
-      <>до <span className="font-semibold">230 м²</span> на 1 спуск</>,
-      "≈130 м²",
-    ],
-    ["Шумність", "Низька", "Середня"],
-    ["Вартість", "Вигідна", "Висока"],
-  ];
-
   return (
-    <section id="compare" className="bg-gradient-to-b from-slate-50 to-white">
-      <div className="mx-auto max-w-7xl px-4 py-16">
-        <h2 className="text-3xl font-extrabold tracking-tight text-slate-900">
-          Метал проти ПВХ
-        </h2>
+    <section id="compare" className="scroll-mt-28">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        {/* Card */}
+        <div className="rounded-2xl overflow-hidden bg-white shadow-[0_10px_30px_-12px_rgba(0,0,0,0.25)] ring-1 ring-black/5">
+          {/* Header bar */}
+          <div className="bg-indigo-600 text-white px-4 sm:px-6 py-4">
+            <div className="flex items-center gap-6">
+              <span className="text-base sm:text-lg font-semibold">Критерій</span>
 
-        <div className="mt-6 overflow-hidden rounded-3xl bg-white shadow-2xl ring-1 ring-slate-200">
-          {/* Шапка */}
-          <div className="bg-gradient-to-r from-indigo-600 to-indigo-500 text-white">
-            <div className="grid grid-cols-1 md:grid-cols-3">
-              <div className="px-5 py-4 text-indigo-100/90 font-medium">Критерій</div>
-              <div className="px-5 py-4 font-semibold">
-                <span className="inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-sm">
-                  <span className="h-2.5 w-2.5 rounded-full bg-emerald-400" />
-                  AQUASTOK (метал)
+              <div className="ml-auto flex items-center gap-4">
+                <span className="inline-flex items-center gap-2 rounded-full bg-indigo-500/30 px-3 py-1 text-sm sm:text-base">
+                  <span className="inline-block size-2.5 rounded-full bg-emerald-400" />
+                  <span className="font-semibold tracking-wide">AQUASTOK (метал)</span>
                 </span>
-              </div>
-              <div className="px-5 py-4 font-semibold">
-                <span className="inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-sm">
-                  <span className="h-2.5 w-2.5 rounded-full bg-slate-300" />
-                  ПВХ
+
+                <span className="inline-flex items-center gap-2 rounded-full bg-indigo-500/30 px-3 py-1 text-sm sm:text-base">
+                  <span className="inline-block size-2.5 rounded-full bg-sky-300" />
+                  <span className="font-semibold tracking-wide">ПВХ</span>
                 </span>
               </div>
             </div>
           </div>
 
-          {/* Рядки */}
-          <div className="divide-y divide-slate-200">
-            {rows.map(([label, metal, pvc], i) => (
-              <div
-                key={i}
-                className={`grid grid-cols-1 md:grid-cols-3 ${
-                  i % 2 ? "bg-slate-50/60" : "bg-white"
-                }`}
-              >
-                <div className="px-5 py-4 text-slate-700">{label}</div>
-
-                <div className="px-5 py-4 bg-indigo-50/60 text-slate-900 font-medium md:border-l-4 md:border-indigo-300">
-                  <span className="md:hidden block text-xs text-slate-500 mb-1">AQUASTOK</span>
-                  {metal}
+          {/* Table (desktop) */}
+          <div className="hidden md:block">
+            <div className="grid grid-cols-[1.1fr_1fr_1fr] divide-y divide-gray-100">
+              {/* first row top borders off */}
+              {ROWS.map((row, idx) => (
+                <div className="contents" key={idx}>
+                  <div className="px-4 sm:px-6 py-5 bg-white/60">
+                    <div className="text-gray-700 font-medium">{row.k}</div>
+                  </div>
+                  <div className="px-4 sm:px-6 py-5 bg-indigo-50/40">
+                    <div className="text-gray-900 font-semibold">{row.metal}</div>
+                  </div>
+                  <div className="px-4 sm:px-6 py-5 bg-white">
+                    <div className="text-gray-700">{row.pvc}</div>
+                  </div>
                 </div>
+              ))}
+            </div>
+          </div>
 
-                <div className="px-5 py-4 text-slate-700">
-                  <span className="md:hidden block text-xs text-slate-500 mb-1">ПВХ</span>
-                  {pvc}
+          {/* Cards (mobile) */}
+          <div className="md:hidden divide-y divide-gray-100">
+            {ROWS.map((row, idx) => (
+              <div key={idx} className="px-4 sm:px-6 py-4">
+                <div className="text-sm text-gray-500 mb-1">{row.k}</div>
+
+                <div className="rounded-xl overflow-hidden ring-1 ring-gray-200">
+                  <div className="flex items-start gap-3 bg-indigo-50/60 px-4 py-3">
+                    <span className="mt-1 inline-block size-2.5 rounded-full bg-emerald-500" />
+                    <div className="flex-1">
+                      <div className="text-xs text-gray-600">AQUASTOK (метал)</div>
+                      <div className="text-gray-900 font-semibold">{row.metal}</div>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3 bg-white px-4 py-3">
+                    <span className="mt-1 inline-block size-2.5 rounded-full bg-sky-400" />
+                    <div className="flex-1">
+                      <div className="text-xs text-gray-600">ПВХ</div>
+                      <div className="text-gray-700">{row.pvc}</div>
+                    </div>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
 
-          <div className="px-5 py-4 bg-slate-50 text-slate-700">
-            Підсумок: якщо потрібні{" "}
-            <span className="font-semibold text-slate-900">довговічність</span>, стабільна геометрія
-            та преміум-естетика — обирайте металевий водостік{" "}
-            <span className="font-semibold text-indigo-700">AQUASTOK</span>.
+          {/* Summary */}
+          <div className="px-4 sm:px-6 py-5 bg-white">
+            <p className="text-gray-700">
+              Підсумок: якщо потрібні <span className="font-semibold">довговічність</span>, стабільна геометрія та преміум-естетика —
+              обирайте металевий водостік <Link href="#top" className="text-indigo-600 hover:text-indigo-700 font-semibold underline decoration-indigo-300 underline-offset-4">AQUASTOK</Link>.
+            </p>
           </div>
         </div>
       </div>
