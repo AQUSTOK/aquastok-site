@@ -11,25 +11,22 @@ const withMDX = createMDX({
       rehypeSlug,
       [rehypeAutolinkHeadings, { behavior: 'wrap' }],
     ],
-    // використовуємо локальні MDX-компоненти, без @mdx-js/react
-    providerImportSource: 'mdx-components',
+    // Використовуємо базовий alias Next: "@/..." (надійно для Vercel)
+    providerImportSource: '@/mdx-components',
   },
 })
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   pageExtensions: ['ts', 'tsx', 'md', 'mdx'],
-
   async redirects() {
     return [
-      // www → без www
       {
         source: '/:path*',
         has: [{ type: 'host', value: 'www.aquastok.net.ua' }],
         destination: 'https://aquastok.net.ua/:path*',
         permanent: true,
       },
-      // /contacts → /#calc (щоб не було 404)
       {
         source: '/contacts',
         destination: '/#calc',

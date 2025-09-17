@@ -12,33 +12,11 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "./*"
-      ],
-      "mdx-components": [
-        "./mdx-components.tsx"
-      ]
+      "@/*": ["./*"]
     },
     "incremental": true,
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ],
-    "target": "ES2017",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ]
+    "plugins": [{ "name": "next" }]
   },
-  "include": [
-    "**/*.ts",
-    "**/*.tsx",
-    "**/*.mdx",
-    ".next/types/**/*.ts"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["**/*.ts", "**/*.tsx", "**/*.mdx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"]
 }
