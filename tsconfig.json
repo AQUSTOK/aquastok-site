@@ -1,11 +1,5 @@
 {
   "compilerOptions": {
-    "target": "ES2022",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -22,25 +16,29 @@
         "./*"
       ],
       "mdx-components": [
-        "./mdx-components.ts"
-      ] // 👈 ДОДАЛИ ЦЕ
+        "./mdx-components.tsx"
+      ]
     },
     "incremental": true,
     "plugins": [
       {
         "name": "next"
       }
+    ],
+    "target": "ES2017",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
     ]
   },
   "include": [
     "**/*.ts",
     "**/*.tsx",
-    "next-env.d.ts",
+    "**/*.mdx",
     ".next/types/**/*.ts"
   ],
   "exclude": [
-    "node_modules",
-    ".next",
-    "dist"
+    "node_modules"
   ]
 }
