@@ -1,1 +1,1 @@
-declare module "@/mdx-components";
+declare module 'mdx-components';
