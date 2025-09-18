@@ -11,24 +11,21 @@ const withMDX = createMDX({
       rehypeSlug,
       [rehypeAutolinkHeadings, { behavior: 'wrap' }],
     ],
-    // ⚠️ Прибираємо providerImportSource, щоб не залежати від alias/резолвингу
+    // навмисно БЕЗ providerImportSource — щоб не упиратися у alias/резолвінг на Vercel
   },
 })
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   pageExtensions: ['ts', 'tsx', 'md', 'mdx'],
-
   async redirects() {
     return [
-      // www → без www
       {
         source: '/:path*',
         has: [{ type: 'host', value: 'www.aquastok.net.ua' }],
         destination: 'https://aquastok.net.ua/:path*',
         permanent: true,
       },
-      // /contacts → /#calc
       {
         source: '/contacts',
         destination: '/#calc',
