@@ -41,9 +41,10 @@ export default function Specs() {
       <div className="mx-auto max-w-7xl px-4 py-16
                       [&_mark]:bg-amber-200/60 [&_mark]:px-1 [&_mark]:rounded
                       [&_mark]:shadow-[inset_0_0_0_1px_rgba(0,0,0,0.04)]">
-        <h2 className="text-3xl font-extrabold tracking-tight text-slate-900">
-          Характеристики <span className="text-indigo-600">AQUASTOK</span>
-        </h2>
+        <h2 className="text-2xl sm:text-3xl font-bold">
+  Характеристики <span className="text-[#3b34c4]">AQUASTOK</span>
+</h2>
+
 
         <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {items.map((it, i) => (

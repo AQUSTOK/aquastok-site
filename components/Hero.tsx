@@ -1,6 +1,8 @@
 // components/Hero.tsx
 "use client";
 
+import Link from "next/link";
+
 export default function Hero() {
   return (
     <section id="hero" className="relative">
@@ -13,10 +15,10 @@ export default function Hero() {
           draggable={false}
         />
 
-        {/* Темніший лінійний градієнт (став темніше було from-black/60 → стало /80) */}
+        {/* Темніший градієнт */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/60 to-black/20 pointer-events-none" />
 
-        {/* М’яка віньєтка (додає глибини по краям) */}
+        {/* М’яка віньєтка */}
         <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0)_45%,rgba(0,0,0,0.45)_100%)]" />
 
         {/* Контент поверх */}
@@ -31,19 +33,25 @@ export default function Hero() {
             <p className="mt-3 text-white/90">
               Металеві ринви та труби з полімерним покриттям: надійність, естетика, монтаж «під ключ».
             </p>
+
             <div className="mt-6 flex flex-wrap gap-3">
-              <a
-                href="#contacts"
+              {/* CTA: форма розрахунку на головній */}
+              <Link
+                href="/#calc"
+                prefetch={false}
                 className="rounded-2xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white shadow hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-white/70"
               >
                 Отримати розрахунок
-              </a>
-              <a
-                href="#media"
+              </Link>
+
+              {/* Перехід до блоку з ВІДЕО */}
+              <Link
+                href="/#video"
+                prefetch={false}
                 className="rounded-2xl bg-white/90 px-5 py-3 text-sm font-semibold text-gray-900 shadow hover:bg-white focus:outline-none focus:ring-2 focus:ring-white/70"
               >
                 Галерея та відео
-              </a>
+              </Link>
             </div>
           </div>
         </div>

@@ -1,14 +1,18 @@
 // app/page.tsx
-import Header from "../components/Header";
-import Hero from "../components/Hero";
-import CapacityBanner from '@/components/CapacityBanner'
-import Specs from '@/components/Specs'
-import Compare from '@/components/Compare'
-import PhotoGridPreview from "../components/PhotoGridPreview";
-import FAQ from "../components/FAQ";
-import Contacts from "../components/Contacts";
-import Footer from "../components/Footer";
-import BackToTop from "../components/BackToTop";
+// app/galereya/page.tsx
+import Header from "@/components/Header";
+import Hero from "@/components/Hero";
+import CapacityBanner from "@/components/CapacityBanner";
+import Specs from "@/components/Specs";
+import Compare from "@/components/Compare";
+import PhotoGridPreview from "@/components/PhotoGridPreview";
+import ArticlesTeaser from "@/components/ArticlesTeaser";
+import RalPalette from "@/components/RalPalette";
+import Docs from "@/components/Docs";
+import FAQ from "@/components/FAQ";
+import Contacts from "@/components/Contacts";
+import Footer from "@/components/Footer";
+import BackToTop from "@/components/BackToTop";
 
 // перші 16 картинок із /public/images/gallery-01.jpg ... -16.jpg
 const PREVIEW_PHOTOS = Array.from({ length: 16 }, (_, i) => ({

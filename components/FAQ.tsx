@@ -22,7 +22,9 @@ export default function FAQ() {
   return (
     <section id="faq" className="bg-white">
       <div className="mx-auto max-w-7xl px-4 py-16">
-        <h2 className="text-3xl font-bold tracking-tight text-gray-900">Питання та відповіді</h2>
+        <h2 className="text-2xl sm:text-3xl font-bold">
+  Питання та відповіді <span className="text-[#3b34c4]">AQUASTOK</span>
+</h2>
 
         <div className="mt-6 grid gap-3 md:grid-cols-2">
           {items.map((i) => (

@@ -7,7 +7,10 @@ export default function ArticlesTeaser() {
   return (
     <section className="mx-auto max-w-5xl px-4 py-8">
       <div className="flex items-baseline justify-between mb-4">
-        <h2 className="text-2xl font-bold">Корисні статті</h2>
+        <h2 className="text-2xl sm:text-3xl font-bold">
+  Корисні статті <span className="text-[#3b34c4]">AQUASTOK</span>
+</h2>
+
         <Link href="/statti" className="text-sm underline underline-offset-4">
           Усі статті →
         </Link>
