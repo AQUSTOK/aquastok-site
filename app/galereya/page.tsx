@@ -1,9 +1,9 @@
 // app/page.tsx
 import Header from "../components/Header";
 import Hero from "../components/Hero";
-import CapacityBanner from "../components/CapacityBanner";
-import Specs from "../components/Specs";
-import Compare from "../components/Compare";
+import CapacityBanner from '@/components/CapacityBanner'
+import Specs from '@/components/Specs'
+import Compare from '@/components/Compare'
 import PhotoGridPreview from "../components/PhotoGridPreview";
 import FAQ from "../components/FAQ";
 import Contacts from "../components/Contacts";
