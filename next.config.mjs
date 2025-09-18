@@ -1,4 +1,3 @@
-import path from 'path'
 import createMDX from '@next/mdx'
 import remarkGfm from 'remark-gfm'
 import rehypeSlug from 'rehype-slug'
@@ -12,23 +11,13 @@ const withMDX = createMDX({
       rehypeSlug,
       [rehypeAutolinkHeadings, { behavior: 'wrap' }],
     ],
-    // Використовуємо локальні MDX-компоненти (без @mdx-js/react)
-    providerImportSource: 'mdx-components',
+    // ⚠️ Прибираємо providerImportSource, щоб не залежати від alias/резолвингу
   },
 })
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   pageExtensions: ['ts', 'tsx', 'md', 'mdx'],
-
-  // 🔧 ГОЛОВНЕ: підкладаємо alias, щоб Vercel точно знайшов файл
-  webpack(config) {
-    config.resolve.alias = {
-      ...(config.resolve.alias || {}),
-      'mdx-components': path.join(process.cwd(), 'mdx-components.tsx'),
-    }
-    return config
-  },
 
   async redirects() {
     return [
